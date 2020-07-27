@@ -16,12 +16,6 @@ import java.io.IOException;
  */
 public class MainActivity extends AppCompatActivity {
 
-    // メンバ変数
-    String userId = null;
-    String id = null;
-    String title = null;
-    String body = null;
-
     /**
      * SDKからデータを取得し、表示画面に遷移する。
      * @param savedInstanceState
@@ -71,17 +65,12 @@ public class MainActivity extends AppCompatActivity {
                              */
                             @Override
                             public void run() {
-                                // 各メンバ変数に取得した値を格納する
-                                userId = jsonDto.getUserId();
-                                id = jsonDto.getId();
-                                title = jsonDto.getTitle();
-                                body = jsonDto.getBody();
 
                                 // 表示画面に値を送る
-                                intent.putExtra("userId", userId);
-                                intent.putExtra("id", id);
-                                intent.putExtra("title", title);
-                                intent.putExtra("body", body);
+                                intent.putExtra("userId", jsonDto.getUserId());
+                                intent.putExtra("id", jsonDto.getId());
+                                intent.putExtra("title", jsonDto.getTitle());
+                                intent.putExtra("body", jsonDto.getBody());
 
                                 // 画面遷移
                                 startActivity(intent);
